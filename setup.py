@@ -11,7 +11,7 @@ setup(name='hgail',
       install_requires=[
         'numpy',
         'rllab',
-        'tensorflow',
+        'tensorflow-gpu==1.13.1',
         'gym',
         'h5py',
         'cached_property',
