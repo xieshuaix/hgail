@@ -1,17 +1,15 @@
-
 import numpy as np
+from rllab.envs import normalized_env
+from rllab.core import serializable
 
-from rllab.envs.normalized_env import normalize as normalize_env
-from rllab.core.serializable import Serializable
-
-class VectorizedNormalizedEnv(normalize_env):
+class VectorizedNormalizedEnv(normalized_env.NormalizedEnv):
 
     def __init__(
             self,
             env,
             clip_std_multiple=np.inf,
             **kwargs):
-        Serializable.quick_init(self, locals())
+        serializable.Serializable.quick_init(self, locals())
         self.clip_std_multiple = clip_std_multiple
         super(VectorizedNormalizedEnv, self).__init__(env, **kwargs)
 
